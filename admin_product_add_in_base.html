@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel="icon" type="image/png" href="/logo.png"/>
+  <link rel="stylesheet" href="/style3.css" type="text/css" />
+  <title>Добавить товар</title>
+</head>
+<body>
+<h1 class="heading">Администрирование продукции</h1>
+
+<form action="admin_product_add.php" method="post">
+  <form action="admin_product.html" method="get">
+    <button style="border-radius: 5px;position: absolute">Вернуться обратно</button>
+  </form>
+  <div class="wrapper">
+    <label for="data1">Введите данные id продукта(цифры\до 20 символов):</label>
+    <input placeholder="input id" type="text" id="data1" name="data1" pattern="[0-9]{1,20}" required><br>
+    <p></p>
+    <label for="data2">Введите имя продукта(до 100 символов):</label>
+    <input placeholder="input name" type="text" id="data2" name="data2" maxlength="100" required><br>
+    <p></p>
+    <label for="data3">Введите характеристики продукта(до 100 символов):</label>
+    <textarea style="max-width: 440px;min-height: 30px" placeholder="input specifications"  id="data3" name="data3" maxlength="1000" required></textarea><br>
+    <p></p>
+    <label for="data4">Введите цену продукции(цифры\до 10 символов):</label>
+    <input placeholder="input cost" type="text" id="data4" name="data4" pattern="[0-9]{1,10}" required><br>
+    <p></p>
+    <label for="data5">Введите время доставки(в днях.цифры\до 3 символов):</label>
+    <input placeholder="input delivery time" type="text" id="data5" name="data5" pattern="[0-9]{1,3}" required><br>
+    <p></p>
+    <label for="data6">Введите время изготовления(в днях.цифры\до 3 символов):</label>
+    <input placeholder="input production time" type="text" id="data6" name="data6" pattern="[0-9]{1,3}" required><br>
+    <p></p>
+    <button style="border-radius: 5px;" class="save-btn" type="submit">Записать в базу</button>
+
+  </div>
+
+</form>
+<script>const tx = document.getElementsByTagName("textarea");
+for (let i = 0; i < tx.length; i++) {
+  tx[i].setAttribute("style", "height:" + (tx[i].scrollHeight) + "px;overflow-y:hidden;");
+  tx[i].addEventListener("input", OnInput, false);
+}
+
+function OnInput() {
+  this.style.height = 0;
+  this.style.height = (this.scrollHeight) + "px";
+}</script>
+</body>
+</html>
